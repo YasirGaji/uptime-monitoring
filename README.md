@@ -16,6 +16,9 @@ This is an uptime-monitoring NODEjs application that serves as a restful API tha
   4. I learned and setup how to pass and monitor request paths
   5. How to get http method and query strings from a request
   6. How to configure routing requests using the StringDecoder
+  7. How to format a returning data types to JSON
+  8. How to setup configuration variables
+  9. How to configure staging and production environments
   
 ## Errors  I Faced
 
