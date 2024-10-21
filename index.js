@@ -4,6 +4,27 @@ const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const fs = require('fs');
+const _data = require('./lib/data');
+
+
+// Tests to create, read, and update data @TODO delete these
+// _data.create('test', 'newfile', {'Hello' : 'world'}, function(err){
+//   console.log('Error: ', err)
+// })
+
+// _data.update('test', 'newfile', {'Hi' : 'universe'}, function(err){
+//   console.log('Error: ', err)
+// })
+
+// _data.read('test', 'newfile', function(err, data){
+//   console.log('Error: ', err, 'Data: ', data)
+// })
+
+// _data.delete('test', 'newfile', function(err){
+//   console.log('Error: ', err)
+// })
+
+
 
 
 // Instantiating http server
@@ -105,14 +126,14 @@ const unifiedServer = function (req, res) {
   });
 };
 
+
 // defining handlers
 const handlers = {};
 
-// sample handler
-handlers.sample = function (data, callback) {
-  //callback http status code and a payload object
-  callback(406, { name: 'sample handler' });
-};
+// Ping handler
+handlers.hello = function(data, callback) {
+  callback(200, { welcomeMessage: 'Hello world' });
+}
 
 // Incase handlers are not found
 handlers.notFound = function (data, callback) {
@@ -121,5 +142,5 @@ handlers.notFound = function (data, callback) {
 
 // Defining a router request
 const router = {
-  sample: handlers.sample,
+  'hello': handlers.hello,
 };
