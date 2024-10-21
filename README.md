@@ -19,6 +19,8 @@ This is an uptime-monitoring NODEjs application that serves as a restful API tha
   7. How to format a returning data types to JSON
   8. How to setup configuration variables
   9. How to configure staging and production environments
+  10. How to generate an ssl certificate from openssl
+  11. How to instantiate server options and configure code base for both http and https
   
 ## Errors  I Faced
 
