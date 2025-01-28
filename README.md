@@ -23,6 +23,7 @@ This is an uptime-monitoring NODEjs application that serves as a restful API tha
   11. How to instantiate server options and configure code base for both http and https
   12. How to store data and write data to a file
   13. How to create, read, update, and delate data (CRUD library)
+  14. How to hash password
   
 ## Errors  I Faced
 

@@ -2,9 +2,11 @@ const http = require('http');
 const https = require('https');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
-const config = require('./config');
+const config = require('./lib/config');
 const fs = require('fs');
 const _data = require('./lib/data');
+const handlers = require('./lib/handlers');
+const helpers = require('./lib/helpers')
 
 
 // Tests to create, read, and update data @TODO delete these
@@ -64,7 +66,7 @@ const unifiedServer = function (req, res) {
 
   const path = parsedUrl.pathname;
 
-  // trims off url to get a clean path url
+  // trims off url to get a clean path url using regex
   const trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
   const queryStringObject = parsedUrl.query;
@@ -97,7 +99,7 @@ const unifiedServer = function (req, res) {
       queryStringObject: queryStringObject,
       method: method,
       headers: headers,
-      payload: buffer,
+      payload: helpers.parseJsonToObject(buffer),
     };
 
     // calling data by routing the request to the specified handler in the router
@@ -127,20 +129,10 @@ const unifiedServer = function (req, res) {
 };
 
 
-// defining handlers
-const handlers = {};
 
-// Ping handler
-handlers.hello = function(data, callback) {
-  callback(200, { welcomeMessage: 'Hello world' });
-}
-
-// Incase handlers are not found
-handlers.notFound = function (data, callback) {
-  callback(404);
-};
 
 // Defining a router request
 const router = {
   'hello': handlers.hello,
+  'users' : handlers.users
 };
