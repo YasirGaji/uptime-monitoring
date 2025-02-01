@@ -134,5 +134,6 @@ const unifiedServer = function (req, res) {
 // Defining a router request
 const router = {
   'hello': handlers.hello,
-  'users' : handlers.users
+  'users' : handlers.users,
+  'token' : handlers.tokens,
 };
