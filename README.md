@@ -24,6 +24,7 @@ This is an uptime-monitoring NODEjs application that serves as a restful API tha
   12. How to store data and write data to a file
   13. How to create, read, update, and delate data (CRUD library)
   14. How to hash password
+  15. Learned how to create a random string using a for loop conditioned by a string length function
   
 ## Errors  I Faced
 
