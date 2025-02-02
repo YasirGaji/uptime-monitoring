@@ -136,4 +136,5 @@ const router = {
   'hello': handlers.hello,
   'users' : handlers.users,
   'token' : handlers.tokens,
+  'checks' : handlers.checks,
 };
